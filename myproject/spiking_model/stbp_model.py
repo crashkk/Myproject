@@ -7,7 +7,7 @@ import sys
 sys.path.append('/home/zdm/snn_forget_industry/utils.py')
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-tw=20
+tw=10
 probs=0.5
 thresh = 0.5 # neuronal threshold
 lens = 0.5 # hyper-parameters of approximate function
@@ -46,7 +46,7 @@ cfg_kernel = [int(inputsize), int(inputsize/2), int(inputsize/(2**2))]
 cfg_fc = [128, int(num_classes)]
 
 class SCNN(nn.Module):
-    def __init__(self):
+    def __init__(self,timesteps=None):
         super(SCNN, self).__init__()
         in_planes, out_planes, stride, padding, kernel_size = cfg_cnn[0]
         self.conv1 = nn.Conv2d(in_planes, out_planes, kernel_size=kernel_size, stride=stride, padding=padding)
@@ -55,10 +55,10 @@ class SCNN(nn.Module):
 
         self.fc1 = nn.Linear(cfg_kernel[-1] * cfg_kernel[-1] * cfg_cnn[-1][1], cfg_fc[0])
         self.fc2 = nn.Linear(cfg_fc[0], cfg_fc[1])
-
+        self.timesteps=timesteps
     def forward(self, input,simulation_required=False, time_window = tw,batch_size=batch_size):
         if simulation_required==True:
-            time_window=40
+            time_window=self.timesteps
         
         if len(input)!=batch_size:
             batch_size=len(input)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_package\model_select.ui'
+# Form implementation generated from reading ui file 'model_select.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
+class Ui_modelselect(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1118, 632)
@@ -57,13 +57,15 @@ class Ui_Form(object):
         self.lineEdit_2 = QtWidgets.QLineEdit(Form)
         self.lineEdit_2.setGeometry(QtCore.QRect(680, 440, 91, 41))
         self.lineEdit_2.setObjectName("lineEdit_2")
-
+        self.lineEdit_2.setText('10')
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+        self.modelselectedpath=None
+        self.timesteps=10#default timesteps=10
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Model Select"))
         self.label.setText(_translate("Form", "Please select an exsisting model.If you want to use the default one,just skip this procedure"))
         self.pushButton.setText(_translate("Form", "Back to menu"))
         self.pushButton_2.setText(_translate("Form", "Skip"))
