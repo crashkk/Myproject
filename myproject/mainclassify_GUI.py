@@ -183,7 +183,13 @@ class Ui_Form(object):
         self.pushButton_5 = QtWidgets.QPushButton(Form)
         self.pushButton_5.setGeometry(QtCore.QRect(1070, 970, 191, 61))
         self.pushButton_5.setObjectName("pushButton_6")
-        
+        self.pushButton_7 = QtWidgets.QPushButton(Form)
+        self.pushButton_7.setGeometry(QtCore.QRect(520, 950, 161, 71))
+        self.pushButton_7.setObjectName("pushButton_7")
+        self.pushButton_8 = QtWidgets.QPushButton(Form)
+        self.pushButton_8.setGeometry(QtCore.QRect(730, 950, 161, 71))
+        self.pushButton_8.setObjectName("pushButton_8")
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
         self.imagepathsave=None
@@ -193,6 +199,8 @@ class Ui_Form(object):
         self.single_classifymode=0
         self.current_model=None
         self.timesteps=None
+        self.image_to_save=None
+        self.label_to_save=None
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
@@ -207,3 +215,5 @@ class Ui_Form(object):
         self.pushButton_4.setText(_translate("Form", "Capture"))
         self.pushButton_5.setText(_translate("Form", "Back"))
         self.pushButton_6.setText(_translate("Form", "Exit"))
+        self.pushButton_7.setText(_translate("Form", "Relabel"))
+        self.pushButton_8.setText(_translate("Form", "Contribute"))

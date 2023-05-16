@@ -36,6 +36,8 @@ def execute_classify(ui):#生成输入图像数据
     elif ui.single_classifymode==2:#选择摄像头读取图片
         image=ui.image
     
+    ui.image_to_save=image
+
     transform=Compose([
         ToTensor(),
         Normalize(0.5,0.5),
@@ -62,5 +64,8 @@ def execute_classify(ui):#生成输入图像数据
         ui.textBrowser.setPlainText('Attention!The confidence is {:.5f} which is smaller than the given threshold,please assure that this is a steel defect image or identify this image manually.'.format(s_ans))
     else:
         ui.textBrowser.setPlainText('The defect type is '+defects_type[int(ans)])
+    ui.label_to_save=str(ans)
     ui.single_classifymode=0#完成分类任务，模式切换为0
     ui.pushButton_2.setEnabled(False)
+    ui.pushButton_7.setEnabled(True)
+    ui.pushButton_8.setEnabled(True)

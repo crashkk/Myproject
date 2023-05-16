@@ -60,22 +60,12 @@ class NEU_CLS_64(Dataset):
             y_train=y[pos[:int(split_size*len(y))]]
             X_test=X[pos[int(split_size*len(y)):]]
             y_test=y[pos[int(split_size*len(y)):]]
-            np.savez('snn_forget_industry/industry_dataset/NEU_CLS_64/pregenerate_data/train.npz',data1=X_train,data2=y_train)
-            np.savez('snn_forget_industry/industry_dataset/NEU_CLS_64/pregenerate_data/test.npz',data1=X_test,data2=y_test)
             if train==True:
                 self.X=X_train
                 self.y=y_train
             elif train==False:
                 self.X=X_test
                 self.y=y_test
-        
-        elif regenerate_NEU_64_or_not=='N':#read train and test data
-            if train==True:
-                data=np.load('snn_forget_industry/industry_dataset/NEU_CLS_64/pregenerate_data/train.npz')
-            elif train==False:
-                data=np.load('snn_forget_industry/industry_dataset/NEU_CLS_64/pregenerate_data/test.npz')
-            self.X=data['data1']
-            self.y=data['data2']
 
         if  train==True:
             transform=Compose([

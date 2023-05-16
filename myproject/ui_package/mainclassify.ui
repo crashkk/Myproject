@@ -325,6 +325,32 @@
     <string>Back</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>950</y>
+     <width>161</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Relabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_8">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>950</y>
+     <width>161</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Contribute</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

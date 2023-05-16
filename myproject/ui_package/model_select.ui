@@ -34,7 +34,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Please select an exsisting model.If you want to use the default one,just skip this procedure</string>
+       <string>Please select an exsisting model and savepath for classification results.</string>
       </property>
      </widget>
     </item>
@@ -131,6 +131,29 @@
      <width>91</width>
      <height>41</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_3">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>270</y>
+     <width>661</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>270</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Results saved to:</string>
    </property>
   </widget>
  </widget>

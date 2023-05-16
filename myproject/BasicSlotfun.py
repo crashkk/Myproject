@@ -12,5 +12,7 @@ def stopcap_saveimg(ui):
     ui.pushButton_2.setEnabled(True)
 
 def camerashot(ui):#using camera to generate test image
+    ui.pushButton_7.setEnabled(False)
+    ui.pushButton_8.setEnabled(False)
     ui.camera=Camera(ui)#实例化摄像头
     ui.camera.start_display()

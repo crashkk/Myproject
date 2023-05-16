@@ -127,6 +127,9 @@ class Ui_SSDDtool(object):
         self.pushButton.setSizePolicy(sizePolicy)
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout_5.addWidget(self.pushButton)
+        self.pushButton_4 = QtWidgets.QPushButton(SSDDtool)
+        self.pushButton_4.setGeometry(QtCore.QRect(20, 20, 131, 61))
+        self.pushButton_4.setObjectName("pushButton_4")
 
         self.retranslateUi(SSDDtool)
         QtCore.QMetaObject.connectSlotsByName(SSDDtool)
@@ -141,3 +144,4 @@ class Ui_SSDDtool(object):
         self.pushButton_3.setText(_translate("SSDDtool", "Click here to see the related document"))
         self.pushButton_2.setText(_translate("SSDDtool", "Continue"))
         self.pushButton.setText(_translate("SSDDtool", "Exit"))
+        self.pushButton_4.setText(_translate("SSDDtool", "Back"))

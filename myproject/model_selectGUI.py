@@ -58,10 +58,18 @@ class Ui_modelselect(object):
         self.lineEdit_2.setGeometry(QtCore.QRect(680, 440, 91, 41))
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_2.setText('10')
+        self.lineEdit_3 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_3.setGeometry(QtCore.QRect(350, 270, 661, 41))
+        self.lineEdit_3.setObjectName("lineEdit_3")
+        self.pushButton_5 = QtWidgets.QPushButton(Form)
+        self.pushButton_5.setGeometry(QtCore.QRect(80, 270, 241, 41))
+        self.pushButton_5.setObjectName("pushButton_5")
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
         self.modelselectedpath=None
+        self.resultssavedpath=None
         self.timesteps=10#default timesteps=10
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
@@ -72,3 +80,4 @@ class Ui_modelselect(object):
         self.pushButton_3.setText(_translate("Form", "Exit"))
         self.pushButton_4.setText(_translate("Form", "Select your model:"))
         self.label_2.setText(_translate("Form", "Define the simulation time-steps:"))
+        self.pushButton_5.setText(_translate("Form", "Results saved to:"))
