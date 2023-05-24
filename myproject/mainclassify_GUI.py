@@ -203,7 +203,7 @@ class Ui_Form(object):
         self.label_to_save=None
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Classify"))
         self.label.setText(_translate("Form", "Steel Defects classification"))
         self.pushButton_2.setText(_translate("Form", "Start Classify"))
         self.label_4.setText(_translate("Form", "classify result:"))

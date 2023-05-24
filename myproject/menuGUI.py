@@ -136,7 +136,7 @@ class Ui_SSDDtool(object):
 
     def retranslateUi(self, SSDDtool):
         _translate = QtCore.QCoreApplication.translate
-        SSDDtool.setWindowTitle(_translate("SSDDtool", "Form"))
+        SSDDtool.setWindowTitle(_translate("SSDDtool", "Menu"))
         self.label_2.setText(_translate("SSDDtool", "Welcome To SSDD Tool "))
         self.label.setText(_translate("SSDDtool", "Menu"))
         self.radioButton.setText(_translate("SSDDtool", "Train your own dataset using spiking neural network"))

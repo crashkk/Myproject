@@ -132,7 +132,7 @@ class Ui_Setting(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Setting"))
         self.label.setText(_translate("Form", "Setting"))
         self.label_2.setText(_translate("Form", "CUDA:"))
         self.label_3.setText(_translate("Form", "NUM-WORKERS:"))

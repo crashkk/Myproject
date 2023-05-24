@@ -59,7 +59,7 @@ class Ui_adm(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Administrator"))
         self.label.setText(_translate("Form", "Welcome,adiministrator"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Form", "username"))

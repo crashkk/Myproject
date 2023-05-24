@@ -74,7 +74,7 @@ class Ui_modelselect(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Model Select"))
-        self.label.setText(_translate("Form", "Please select an exsisting model.If you want to use the default one,just skip this procedure"))
+        self.label.setText(_translate("Form", "Please select an exsisting model."))
         self.pushButton.setText(_translate("Form", "Back to menu"))
         self.pushButton_2.setText(_translate("Form", "Skip"))
         self.pushButton_3.setText(_translate("Form", "Exit"))

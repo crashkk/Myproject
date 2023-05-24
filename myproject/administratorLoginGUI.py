@@ -66,7 +66,7 @@ class Ui_admLogin(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Administrator Login"))
         self.label.setText(_translate("Form", "Welcome to SSDD tool"))
         self.label_3.setText(_translate("Form", "Account:"))
         self.label_4.setText(_translate("Form", "Password"))

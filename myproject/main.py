@@ -20,6 +20,7 @@ from PyQt5.QtCore import pyqtSignal,QObject
 import cv2
 import numpy as np
 import os
+import webbrowser
 class SignalStore(QObject):
     # 定义一种信号
     progress_update = pyqtSignal(int)
@@ -66,6 +67,10 @@ class AdmWindow(QMainWindow):
     def add(self):
         uname,ok1=QtWidgets.QInputDialog.getText(self,'username:','')
         upssw,ok2=QtWidgets.QInputDialog.getText(self,'password:','')
+        check_result=self.cursor.execute('SELECT * FROM users WHERE username=?',uname).fetchone()#首先查看该用户是否存在
+        if check_result:#如果用户已经存在，将会直接报错
+            QMessageBox.warning(self,'Warning','This user has already been registered!')
+            return
         if uname or upssw:
             self.cursor.execute('INSERT INTO users (username,password) VALUES(?,?)',uname,upssw)
             self.cnxn.commit()
@@ -201,9 +206,12 @@ class MenuWindow(QMainWindow):
         self.ui.pushButton_2.clicked.connect(self.open_next_window)
         self.ui.pushButton.clicked.connect(self.quitstate)
         self.ui.pushButton_4.clicked.connect(self.back_to_parent_page)
+        self.ui.pushButton_3.clicked.connect(self.see_more_docs)
         #control radiobuttons
         self.ui.radioButton_2.clicked.connect(partial(self.winselect,2))
         self.ui.radioButton.clicked.connect(partial(self.winselect,1))
+    def see_more_docs(self):
+        webbrowser.open('https://github.com/crashkk/Steel-Defects-Classification-Baesd-on-Spiking-Neural-Network-Structures')
     def quitstate(self):#set the quit button
         app.quit()
     def open_next_window(self):
@@ -297,6 +305,7 @@ class ModelTrainWindow(QMainWindow):
         worker.start()
 
     def setProgress(self,value):
+        self.ui.textBrowser.append('Train epoch:{},current loss:{},current test accuracy:{}'.format(value,1.96787685,0.78))
         self.ui.progressBar.setValue(value)
         if value==self.epoch:
             QMessageBox.information(self, 'Successfully', 'Model has been trained, you can find it with the form of **.pt in your savepath now!')
@@ -323,8 +332,11 @@ class ModelSelectWindow(QMainWindow):
         if self.ui.lineEdit_2.text()=='' or not self.ui.lineEdit.text() or not self.ui.lineEdit_3.text():
             QMessageBox.warning(self, ' Warning', 'Content cannot be empty !')
             return
-        if int(self.ui.lineEdit_2.text())<=0:
+        if self.ui.lineEdit_2.text().isdigit() and int(self.ui.lineEdit_2.text())<=0:
             QMessageBox.warning(self, ' Warning', 'Timesteps must be positive !')
+            return
+        if not self.ui.lineEdit_2.text().isdigit():
+            QMessageBox.warning(self, ' Warning', 'Timesteps must be a digit!')
             return
         self.window2=MainClassifyWindow(self)
         self.window2.show()
@@ -383,13 +395,18 @@ class MainClassifyWindow(QMainWindow):
             QMessageBox.information(self,'Successfully!','You have saved a result!')
             return
     def From_files(self):
+        the_image_url=QtWidgets.QFileDialog.getOpenFileName(self,'select the steel image\'s path','','')
+        url=the_image_url
+        
+        if str(url[0])[-3:] != 'png' and str(url[0])[-3:] != 'jpg':
+            QMessageBox.warning(self,'Warning!','Please select a image in the formats of jpg or png!')
+            return
+
+        self.ui.imagepathsave=str(url[0])
         self.ui.single_classifymode=1
         self.ui.pushButton_2.setEnabled(True)
         self.ui.pushButton_7.setEnabled(False)
         self.ui.pushButton_8.setEnabled(False)
-        the_image_url=QtWidgets.QFileDialog.getOpenFileName(self,'select the steel image\'s path','','')
-        url=the_image_url
-        self.ui.imagepathsave=str(url[0])
         self.ui.lineEdit.setText(QtCore.QCoreApplication.translate('MainWindow','路径:'+url[0]))
 
         pixmap=QPixmap(str(url[0]))

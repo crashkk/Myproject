@@ -60,7 +60,7 @@ def execute_classify(ui):#生成输入图像数据
     ans=output.argmax(dim=1,keepdim=True).item()
     s_ans=softmax_output.max(dim=1)[0].item()
     ui.lcdNumber.display(ans)
-    if s_ans<0.2:#the confidence is smaller than the given threshold
+    if s_ans<0.25:#the confidence is smaller than the given threshold
         ui.textBrowser.setPlainText('Attention!The confidence is {:.5f} which is smaller than the given threshold,please assure that this is a steel defect image or identify this image manually.'.format(s_ans))
     else:
         ui.textBrowser.setPlainText('The defect type is '+defects_type[int(ans)])

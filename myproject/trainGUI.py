@@ -49,7 +49,7 @@ class Ui_Train(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Train"))
         self.pushButton.setText(_translate("Form", "Back"))
         self.pushButton_2.setText(_translate("Form", "Exit"))
         self.label.setText(_translate("Form", "training..."))
